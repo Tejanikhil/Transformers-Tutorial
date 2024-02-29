@@ -17,6 +17,9 @@ Transformers have emerged as powerful models for various natural language proces
 - Each encoder consists of a MultiHead attention block, a Feed Forward block, and a LayerNormalization Block.
 - Each decoder consists of a Masked MultiHead attention block, a layer normalization block, and a FeedForward Block.
 
+Here is how a transformer model looks like
+
+
 ## Significance of Attention Block
 - Attention mechanisms enable capturing dependencies between distant elements in the input sequence.
 - The attention mechanism computes attention scores between all pairs of elements in the input sequence, assigning more weight to relevant words.

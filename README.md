@@ -31,18 +31,18 @@ Here is how a transformer model looks like
 * Mathematically this is acheived using query, keys and values
 
 ## What are query, keys and values ? 
-* Query:
-**Intuition**: The query represents the current token for which we want to compute the attention scores. Think of it as the token that is asking "what should I pay attention to?"
-**Example**: In language understanding tasks, if the current token is "cat," the query represents the information or context associated with "cat" that needs to be attended to.
-**Mathematically**: The query is a linear transformation of the input embeddings, projecting the input into a lower-dimensional space to facilitate attention computations.
-* Key:
-**Intuition**: The key provides context or information about other tokens in the sequence. It helps the model understand the relationship between the current token (query) and other tokens in the sequence.
-**Example**: In language understanding tasks, if the current token is "cat," the key provides information about other words in the sentence, such as "mat," "sat," "the," etc.
-**Mathematically**: Like the query, the key is obtained through a linear transformation of the input embeddings, projecting the input into a lower-dimensional space.
-* Value:
-**Intuition**: The value represents the actual information or content associated with each token in the sequence. It serves as the "content" that the model will focus on or pay attention to based on the attention scores computed from the query and key.
-**Example**: In language understanding tasks, if the current token is "cat," the value provides the actual meaning or content associated with "cat."
-**Mathematically**: The value is also obtained through a linear transformation of the input embeddings, projecting the input into a lower-dimensional space.
+* Query: <br>
+**Intuition**: The query represents the current token for which we want to compute the attention scores. Think of it as the token that is asking "what should I pay attention to?" <br>
+**Example**: In language understanding tasks, if the current token is "cat," the query represents the information or context associated with "cat" that needs to be attended to. <br>
+**Mathematically**: The query is a linear transformation of the input embeddings, projecting the input into a lower-dimensional space to facilitate attention computations.<br>
+* Key:<br>
+**Intuition**: The key provides context or information about other tokens in the sequence. It helps the model understand the relationship between the current token (query) and other tokens in the sequence.<br>
+**Example**: In language understanding tasks, if the current token is "cat," the key provides information about other words in the sentence, such as "mat," "sat," "the," etc.<br>
+**Mathematically**: Like the query, the key is obtained through a linear transformation of the input embeddings, projecting the input into a lower-dimensional space.<br>
+* Value:<br>
+**Intuition**: The value represents the actual information or content associated with each token in the sequence. It serves as the "content" that the model will focus on or pay attention to based on the attention scores computed from the query and key.<br>
+**Example**: In language understanding tasks, if the current token is "cat," the value provides the actual meaning or content associated with "cat."<br>
+**Mathematically**: The value is also obtained through a linear transformation of the input embeddings, projecting the input into a lower-dimensional space. <br>
 
 
 

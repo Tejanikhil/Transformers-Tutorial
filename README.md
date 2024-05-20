@@ -23,7 +23,7 @@ Here is how a transformer model looks like
 
 ![image](https://github.com/Tejanikhil/Transformers-Tutorial/assets/102232692/63d330ce-0c3c-4358-9469-6aea162db77e)
 
-## Significance of Attention Block
+## Significance of Self Attention Block
 - Attention mechanisms enable capturing dependencies between distant elements in the input sequence.
 - The attention mechanism computes attention scores between all pairs of elements in the input sequence, assigning more weight to relevant words.
 

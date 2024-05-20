@@ -45,7 +45,7 @@ Output Sequence : x y z
     Positional Embeddings: Pa Pb Pc Pd
     ```
 3. After adding the positional embeddings, let's say the embeddings become Ea', Eb', Ec', Ed'.
-4. It performs [self attention](https://github.com/Tejanikhil/Transformers-Tutorial/edit/main/Self Attention.md):
+4. It performs [self attention](https://github.com/Tejanikhil/Transformers-Tutorial/edit/main/Self_Attentions.md):
     ```
     self_attention(Ea', Eb', Ec', Ed') -> Ca Cb Cc Cd
     ```

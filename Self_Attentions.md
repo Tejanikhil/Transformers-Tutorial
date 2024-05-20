@@ -23,21 +23,15 @@ Let's say the embeddings of the input sequence before applying self-attention ar
 - **Key = Eb**: We are trying to find the attention score of Ea with respect to Eb (how relevant Ea is to Eb).
 - Similarly, we will calculate the attention score of Ea with all other words (Ea, Eb, Ec, Ed), resulting in scores a1, a2, a3, a4.
 - **Value for query Ea**: 
-  \[
-  Value for query Ea = a1.Ea + a2.Eb + a3.Ec + a4.Ed
-  \]
+  Ea = a1.Ea + a2.Eb + a3.Ec + a4.Ed
 
 ## Note
 
 While calculating the value, we normalize the attention scores to avoid complex computation:
 - **Normalized Scores**:
-  \[
   Ni = Softmax(ai/sqrt(dimensions(ai)))
-  \]
 - Therefore, the value for query Ea is:
-  \[
   C_a = N1.Ea + N2.Eb + N3.Ec + N4.Ed
-  \]
 
 The contextual embeddings \( C \) are:
 C = [C_a, C_b, C_c, C_d]
@@ -50,7 +44,7 @@ Let's put all this in a matrix format:
 
 - **Embedding Dimensions**: \( d_k \)
 - Ea : Row vector of dimension(\( 1 x dk \))
-- \( X = [Ea; Eb; Ec; Ed] \) -> Dimensions (1 x dk)
+- \( X = [Ea; Eb; Ec; Ed] \) -> Dimensions (4 x dk)
 
 Initially,
 \[

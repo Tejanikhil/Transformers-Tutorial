@@ -14,8 +14,10 @@ Transformers have emerged as powerful models for various natural language proces
 - Decoder decodes encoded sequences into the required output.
 
 ## Lets go deeper!!
-- Each encoder consists of a MultiHead attention block, a Feed Forward block, and a LayerNormalization Block.
+- Each encoder consists of an attention block, a Feed Forward block, and a LayerNormalization Block.
 - Each decoder consists of a Masked MultiHead attention block, a layer normalization block, and a FeedForward Block.
+
+  Will discuss more about these blocks further
 
 Here is how a transformer model looks like
 

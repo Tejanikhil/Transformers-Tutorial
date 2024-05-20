@@ -29,14 +29,14 @@ Let's say the embeddings of the input sequence before applying self-attention ar
 
 While calculating the value, we normalize the attention scores to avoid complex computation:
 - **Normalized Scores**:
-  Ni = Softmax(ai/sqrt(dimensions(ai)))
+  ```Ni = Softmax(ai/sqrt(dimensions(ai)))```
 - Therefore, the value for query Ea is:
-  C_a = N1.Ea + N2.Eb + N3.Ec + N4.Ed
+  ```C_a = N1.Ea + N2.Eb + N3.Ec + N4.Ed```
 
 The contextual embeddings \( C \) are:
-C = [C_a, C_b, C_c, C_d]
+```C = [C_a, C_b, C_c, C_d]```
 
-selfattention(Ea, Eb, Ec, Ed) = C_a, C_b, C_c, C_d
+```selfattention(Ea, Eb, Ec, Ed) = C_a, C_b, C_c, C_d```
 
 ## Matrix Format
 
@@ -44,23 +44,19 @@ Let's put all this in a matrix format:
 
 - **Embedding Dimensions**: \( d_k \)
 - Ea : Row vector of dimension(\( 1 x dk \))
-- \( X = [Ea; Eb; Ec; Ed] \) -> Dimensions (4 x dk)
+- ```X = [Ea; Eb; Ec; Ed] \) -> Dimensions (4 x dk)```
 
 Initially,
-\[
+```
 Q = X_i (4 x dk)
-K = X_i (4 x dk) \\
+K = X_i (4 x dk)
 V = X_i (4 x dk)
-\]
+```
 
 - **Attention Weights (A)**:
-  \[
-  A = softmax(Q.K'/sqrt(dk))
-  \]
+  ```A = softmax(Q.K'/sqrt(dk))```
 
 - **Weighted Embeddings (Contextual Embeddings)**:
-  \[
-  Contextual Embeddings = A.V = C -> Dimensions (4 x dk)
-  \]
+ ```Contextual Embeddings = A.V = C -> Dimensions (4 x dk)```
 
 C = [C_a, C_b, C_c, C_d]

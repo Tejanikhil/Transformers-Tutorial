@@ -33,18 +33,39 @@ Where Ca, Cb, Cc, Cd represents the contextual embeddings of each word which has
 
 Encoder Output = [Ca Cb Cc Cd]
 
-Before going to the decoder see how the decoder predicts the full sentence
+Before going to the decoder see how the decoder predicts the full sentence 'https://github.com/Tejanikhil/Transformers-Tutorial/edit/main/decoder-overview.md'
 
 * Now lets see how the model correlates the input sequence with the target sequence while learning.
 Step by Step Procedure of a Decoder:
 1. Decoder initializes with a token [BOS] - begining of the sentence
-Now we have the contextual embeddings C = [Ca Cb Cc Cd]
-So the current state of the decoder is y0 (i.e) [BOS]
-2. Now the decoder has to somehow get the embeddings of the words that it is going to predict next. And that is formulated as below
-yt = Embedding(y_t-1) + PositionalEmbeddings(yt)
-for the 1st word Embedding(y0) + PositionalEmbedding(1)
-for 2nd word Embedding(y1) + PositionalEmbedding(2)
-3. Masked Self Attention for yt
+Given the contextual embeddings of the input sequence C = [Ca Cb Cc Cd]
+Lets say the current state of the decoder is [BOS]
+* Iteration1 : 
+3. Now the decoder has to somehow get the embeddings of the words that it is going to predict next. And that is formulated as below
+y1 = Embedding(y0) + PositionalEmbedding(y1)
+4. Performs Masked Self Attention of y1 to get the contextual embedding of the token (associated with the embedding y1) which is going to be predicted next
+y1' = Layernormalization(y1 + MaskedSelfAttention(y1))
+And now we have the contextual information of y1.
+5. Now its time to correlate with the input sequence - Encoder_Decoder_Attention(y1')
+In this step, the decoder attends to the entire input sequence (encoded by the encoder) to gather relevant information for generating the current output token.
+y1'' = Layernormalization(y1' + Encoder_Decoder_Attention(y1'))
+6. Project this embedding vector onto the vocabulary and apply softmax function to get the probability distribution over the whole vocabulary
+Y1 = LayerNormalization(y1'' + FeedForwardLayer(y1''))
+7. P(Y1 | Y0, input_sequence) = softmax(Y1)
 
-Step1 : These self attention mechanisms first calculates the correlation between the words in the input sequence
+* Iteration2 :
+The current state of the decoder is [BOS] x
+1. Now the decoder has to somehow get the embeddings of the word that it is going to predict next (token 'y'). And that is formulated as below
+y2 = Embedding(y1) + PositionalEmbedding(y2)
+2. Performs Masked Self Attention of y2 to get the contextual embedding of the token (associated with the embedding y2) which is going to be predicted next
+y2' = Layernormalization(y2 + MaskedSelfAttention(y2))
+And now we have the contextual information of y2.
+5. Now its time to correlate with the input sequence - Encoder_Decoder_Attention(y2')
+In this step, the decoder attends to the entire input sequence to gather relevant information for generating the current output token (y).
+y2'' = Layernormalization(y2' + Encoder_Decoder_Attention(y2'))
+6. Project this embedding vector onto the vocabulary and apply softmax function to get the probability distribution over the whole vocabulary
+Y2 = LayerNormalization(y2'' + FeedForwardLayer(y2''))
+7. P(Y2 | Y1, Y0, input_sequence) = softmax(Y2)
 
+And the iteration continues till the decoder generates the special token [EOS] - end of the sentence
+  

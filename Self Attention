@@ -1,0 +1,38 @@
+Self Attention mechanism : 
+This file dives into the self attention mechanism
+- Generally self attention mechanism is used to extract the contextual information
+
+As we already know in math that the relavency of two vectors is defined by the dot product which is the projection of 1st vector onto the 2nd vector. In other words, dot product between the two vectors is a quantitative representation of how similar two vectors are
+Self Attention mechanism is formulated using the concept of project of one vector (Embedding) to the other vector (other embeddings), in other words how a word is related to remaining words in the sentence
+lets say the embeddings of the input sequence before applying the self attention is Ea, Eb, Ec, Ed
+
+Terminologies Alert!!! 
+Query - The word to which we are calculating the attention score.
+Key - Represents the word with which we are attending the query.   
+Value - The word/vector that is weighted by the attention scores to form the final output.
+
+Example : 
+Query = Ea -> finding the attention scores for Ea
+Key = Eb -> we are trying to find the attention score of Ea w.r.t Eb (How relavent Ea is to Eb)
+Similaryly we will calculate the attention score of Ea with all other words (Ea, Eb, Ec, Ed) -> a1, a2, a3, a4
+Value for query Ea = a1*Ea + a2*Eb + a3*Ec + a4*Ed
+
+Note : While calcuating the value we will normalize the attention scores to avoid complex computation 
+normalized_scores Ni = Softmax(ai/sqrt(dimension(ai)))
+Therefore Value for query Ea = Ca = N1*Ea + N2*Eb + N3*Ec + N4*Ed 
+
+The contextual embeddings C = [Ca Cb Cc Cd]
+
+selfattention(Ea, Eb, Ec, Ed) = Ca, Cb, Cc, Cd
+
+Lets put all this in a matrix format : 
+In the matrix perspective lets say the Embedding dimensions = dk
+Ea -> row vector of dimension dk (1 x dk)
+X = [Ea; Eb; Ec; Ed] => dimension (4 x dk)
+Initially, 
+Query = Q = Xi (4 x dk)
+Key = K = Xi (4 x dk)
+Value = V = Xi (4 x dk)
+Attention Weights (A) = softmax(Q.K'/sqrt(dk)) => dimensions (4 x 4)
+Weighted Embeddings = Contextual Embeddings = A.V = C (4 x dk) 
+C = [Ca, Cb, Cc, Cd]

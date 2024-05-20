@@ -40,13 +40,9 @@ While calculating the value, we normalize the attention scores to avoid complex 
   \]
 
 The contextual embeddings \( C \) are:
-\[
 C = [C_a, C_b, C_c, C_d]
-\]
 
-\[
 selfattention(Ea, Eb, Ec, Ed) = C_a, C_b, C_c, C_d
-\]
 
 ## Matrix Format
 
@@ -73,6 +69,4 @@ V = X_i (4 x dk)
   Contextual Embeddings = A.V = C -> Dimensions (4 x dk)
   \]
 
-\[
 C = [C_a, C_b, C_c, C_d]
-\]

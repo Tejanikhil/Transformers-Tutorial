@@ -59,4 +59,4 @@ V = X_i (4 x dk)
 - **Weighted Embeddings (Contextual Embeddings)**:
  ```Contextual Embeddings = A.V = C -> Dimensions (4 x dk)```
 
-C = [C_a, C_b, C_c, C_d]
+```selfattention(E) = C```

@@ -63,7 +63,7 @@ V = X_i (4 x dk)
 
 ## Masked Self Attention 
 - The concept of masking comes in the decoding mechanism.
-- While decoding, the decoder predicts the tokens one after the other in an autoregressive manner. The mathematical way to forumalate is this self attention and is as follows
+- While decoding, the decoder predicts the tokens one after the other in an autoregressive manner. The mathematical way to forumalate is this self attention and is called as masking.
 - Lets say the output sequence is x y z, and the decoder state is just [BOS] x y
   Now, while caluclating self attention it masks the attention scores of z and also the words with z -> makes it as zero, this is called as masking
   ```Attentionscores(Anytoken, z) = 0 => Masking```

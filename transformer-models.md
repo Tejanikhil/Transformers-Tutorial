@@ -32,7 +32,7 @@ Embeddings : Ea Eb Ec Ed
 3. To capture the positional information of the words in the sentence, it adds another vector called as positional embeddings which has positional information.
 ```Positional Embeddings : Pa Pb Pc Pd```
 4. After adding the positional embeddings lets say the embeddings has become Ea', Eb', Ec', Ed'
-5. Performs self_attention(Ea', Eb', Ec', Ed') -> Ca Cb Cc Cd
+5. Performs ```self_attention(Ea', Eb', Ec', Ed') -> Ca Cb Cc Cd```
 Where Ca, Cb, Cc, Cd represents the contextual embeddings of each word which has the contextual information. 
 
 ```Encoder Output = [Ca Cb Cc Cd]```

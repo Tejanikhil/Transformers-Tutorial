@@ -23,7 +23,7 @@ Let's say the embeddings of the input sequence before applying self-attention ar
 - **Key = Eb**: We are trying to find the attention score of Ea with respect to Eb (how relevant Ea is to Eb).
 - Similarly, we will calculate the attention score of Ea with all other words (Ea, Eb, Ec, Ed), resulting in scores a1, a2, a3, a4.
 - **Value for query Ea**: 
-  Ea = a1.Ea + a2.Eb + a3.Ec + a4.Ed
+  ```Ea = a1.Ea + a2.Eb + a3.Ec + a4.Ed```
 
 ## Note
 

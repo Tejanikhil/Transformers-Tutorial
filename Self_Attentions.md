@@ -24,7 +24,7 @@ Let's say the embeddings of the input sequence before applying self-attention ar
 - Similarly, we will calculate the attention score of Ea with all other words (Ea, Eb, Ec, Ed), resulting in scores a1, a2, a3, a4.
 - **Value for query Ea**: 
   \[
-  \text{Value for query Ea} = a1 \cdot Ea + a2 \cdot Eb + a3 \cdot Ec + a4 \cdot Ed
+  Value for query Ea = a1*Ea + a2*Eb + a3*Ec + a4*Ed
   \]
 
 ## Note
@@ -32,11 +32,11 @@ Let's say the embeddings of the input sequence before applying self-attention ar
 While calculating the value, we normalize the attention scores to avoid complex computation:
 - **Normalized Scores**:
   \[
-  N_i = \text{Softmax}\left(\frac{a_i}{\sqrt{\text{dimension}(a_i)}}\right)
+  Ni = Softmax(ai/sqrt(dimensions(ai)))
   \]
 - Therefore, the value for query Ea is:
   \[
-  C_a = N1 \cdot Ea + N2 \cdot Eb + N3 \cdot Ec + N4 \cdot Ed
+  C_a = N1*Ea + N2*Eb + N3*Ec + N4*Ed
   \]
 
 The contextual embeddings \( C \) are:
@@ -58,19 +58,19 @@ Let's put all this in a matrix format:
 
 Initially,
 \[
-Q = X_i \quad (4 \times d_k) \\
-K = X_i \quad (4 \times d_k) \\
-V = X_i \quad (4 \times d_k)
+Q = X_i (4 x dk)
+K = X_i (4 x dk) \\
+V = X_i (4 x dk)
 \]
 
 - **Attention Weights (A)**:
   \[
-  A = \text{softmax}\left(\frac{Q \cdot K^T}{\sqrt{d_k}}\right) \quad \text{Dimensions: } 4 \times 4
+  A = softmax(Q.K'/sqrt(dk))
   \]
 
 - **Weighted Embeddings (Contextual Embeddings)**:
   \[
-  \text{Contextual Embeddings} = A \cdot V = C \quad \text{Dimensions: } 4 \times d_k
+  Contextual Embeddings = A.V = C -> Dimensions (4 x dk)
   \]
 
 \[
